@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body>
+  <header>
+  </header>
+  <main onclick="requestFullScreen(document.body)">
+
+    <div class="wrapper">
+      <header class="header">FTC Live Scoring Beta - Both Teams</header>
+      <article class="main">
+        <button id="cenbun" type="button" class="btn btn-primary btn-lg btn-block">
+          <span class="rcen">111</span> - <span class="bcen">0</span>
+        </button>
+        <button id="corbun" type="button" class="btn btn-secondary btn-lg btn-block">
+          <span class="rcor">0</span> - <span class="bcor">0</span>
+        </button>
+      </article>
+      <aside class="aside aside-1">
+        <button id="r1p" type="button" class="btn btn-primary btn-lg btn-block" >+ Center +</button>
+        <button id="r2p" type="button" class="btn btn-secondary btn-lg btn-block" >+ Corner +</button>
+      </aside>
+      <aside class="aside aside-2">
+        <button id="b1m" type="button" class="btn btn-primary btn-lg btn-block" >-</button>
+        <button id="b2m" type="button" class="btn btn-secondary btn-lg btn-block" >-</button>
+      </aside>
+      <aside class="aside aside-3">
+        <button id="r1m" type="button" class="btn btn-primary btn-lg btn-block" >-</button>
+        <button id="r2m" type="button" class="btn btn-secondary btn-lg btn-block" >-</button>
+      </aside>
+      <aside class="aside aside-4">
+        <button id="b1p" type="button" class="btn btn-primary btn-lg btn-block" >+ Center +</button>
+        <button id="b2p" type="button" class="btn btn-secondary btn-lg btn-block" >+ Corner +</button>
+      </aside>
+      <footer class="footer">Sokolov©</footer>
+    </div>
+
+  </main>
+
+
+  <script type="text/javascript">
+   function requestFullScreen(element) {
+    // Supports most browsers and their versions.
+    var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
+
+    if (requestMethod) { // Native full screen.
+      requestMethod.call(element);
+    } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+      var wscript = new ActiveXObject("WScript.Shell");
+      if (wscript !== null) {
+        wscript.SendKeys("{F11}");
+      }
+    }
+  }
+
+var elem = document.body; // Make the body go full screen.
+requestFullScreen(elem);
+</script>
+
+
+<script>
+  window.navigator = window.navigator || {};
+  if (navigator.vibrate === undefined) {
+    document.getElementById('v-unsupported').classList.remove('hidden');
+    ['r1p', 'r1m', 'r2p', 'r2m', 'b1p', 'b1m', 'b2p', 'b2m'].forEach(function(elementId) {
+      document.getElementById(elementId).setAttribute('disabled', 'disabled');
+    });
+  } else {
+    ['r1p', 'r2p', 'b1p', 'b2p'].forEach(function(elementId) {
+      document.getElementById(elementId).addEventListener('click', function() {
+        navigator.vibrate(250);
+      });
+    });
+    ['r1m', 'r2m', 'b1m', 'b2m'].forEach(function(elementId) {
+      document.getElementById(elementId).addEventListener('click', function() {
+        navigator.vibrate([50, 100, 50]);
+      });
+    });   
+    ['cenbun', 'corbun'].forEach(function(elementId) {
+      document.getElementById(elementId).addEventListener('click', function() {
+        navigator.vibrate(0);
+      });
+    }); 
+  }
+</script>   
+
+<% include ../partials/scripts %>
+</body>
+
+</html>

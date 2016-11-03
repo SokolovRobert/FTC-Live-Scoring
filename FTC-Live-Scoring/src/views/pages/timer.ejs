@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body>
+  <header>
+  </header>
+  <main onclick="requestFullScreen(document.body)">
+
+  <div class="wrapper">
+    <header class="header">FTC Live Scoring Beta - Timer Reset</header>
+    <article class="main">
+      <button id="setAuto" type="button" class="btn btn-primary btn-lg btn-block">
+        <span class="rcen">Auto</span>
+      </button>
+      <button id="setTele" type="button" class="btn btn-secondary btn-lg btn-block">
+        <span class="rcor">Tele</span>
+      </button>
+    </article>
+    <article class="timer">
+      <button id="resetTime" type="button" class="btn btn-primary btn-lg btn-block">
+        <span class="rcen">Reset Timer</span>
+      </button>
+      <div class="checkbox">
+        <label><input id="autoExists" type="checkbox" value="">No Auto</label>
+      </div> 
+    </article>
+    <article class="timeButtons">
+      <button id="startMatch" type="button" class="btn btn-primary btn-lg btn-block">
+        <span class="rcen">Start</span>
+      </button>
+      <button id="pause" type="button" class="btn btn-secondary btn-lg btn-block">  
+        <span class="rcor">Pause/Continue</span>
+      </button>
+    </article>
+    <footer class="footer">Sokolov©</footer>
+  </div>
+
+</main>
+
+
+
+<!--<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>-->
+<script src="/assets/js/jquery-1.10.2.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/assets/js/timer.js"></script>
+
+
+<script type="text/javascript">
+ function requestFullScreen(element) {
+    // Supports most browsers and their versions.
+    var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
+
+    if (requestMethod) { // Native full screen.
+      requestMethod.call(element);
+    } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+      var wscript = new ActiveXObject("WScript.Shell");
+      if (wscript !== null) {
+        wscript.SendKeys("{F11}");
+      }
+    }
+  }
+
+var elem = document.body; // Make the body go full screen.
+requestFullScreen(elem);
+</script>
+
+
+<script>
+  window.navigator = window.navigator || {};
+  if (navigator.vibrate === undefined) {
+    document.getElementById('v-unsupported').classList.remove('hidden');
+    ['setAuto', 'setTele', 'resetTime', 'startMatch', 'pause'].forEach(function(elementId) {
+      document.getElementById(elementId).setAttribute('disabled', 'disabled');
+    });
+  } else {
+    ['setAuto', 'setTele', 'resetTime', 'startMatch', 'pause'].forEach(function(elementId) {
+      document.getElementById(elementId).addEventListener('click', function() {
+        navigator.vibrate(250);
+      });
+    });
+  }
+</script>   
+
+<% include ../partials/scripts %>
+</body>
+
+</html>

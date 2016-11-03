@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+        </header>
+        <main>
+            <h2><%= pageTitle %></h2>
+            <!-- Let's start writing content! -->        
+            <form name="logout" action="/logout" method="POST" accept-charset="utf-8">
+                <ul>
+                    <button type="submit" value="Logout" class="btn btn-danger">Logout</button>
+                </ul>
+            </form>
+            <section class="profile cf">
+                <h3>Current info:</h3>
+                <ul>
+                    <li><label for="fname">First Name - <%= fname %></label>
+                    <li><label for="lname">Last Name - <%= lname %></label>
+                    <li><label for="hobby">Hobby - <%= hobby %></label>
+                    <li><label for="pname">Pet Name - <%= pname %></label>
+                </ul>
+                <h3>Update info:</h3>
+                <form name="update" action="/update" method="POST" accept-charset="utf-8">
+                    <ul>
+                        <li><label for="fname">First Name</label>
+                        <input type="fname" name="fname" placeholder="First Name"></li>
+                        <li><label for="lname">Last Name</label>
+                        <input type="lname" name="lname" placeholder="Last Name"></li>
+                        <li><label for="hobby">Hobby</label>
+                        <input type="hobby" name="hobby" placeholder="Hobby"></li>
+                        <li><label for="pname">Pet Name</label>
+                        <input type="pname" name="pname" placeholder="Pet Name"></li>
+                        <button type="submit" class="btn btn-info">Update info</button>
+                    </ul>
+                </form>
+            </section>
+
+        </main>
+    </div>
+
+    <% include ../partials/scripts %>
+</body>
+
+</html>

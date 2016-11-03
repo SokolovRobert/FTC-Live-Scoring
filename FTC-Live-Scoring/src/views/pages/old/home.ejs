@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+        </header>
+        <main>
+            <h2><%= pageTitle %></h2>
+            <!-- Let's start writing content! -->        
+
+            <section class="loginform cf">
+            <h3>Signup for new users!</h3>
+            <form name="signup" action="/signup" method="POST" accept-charset="utf-8">
+                <ul>
+                    <li><label for="usermail">Username</label>
+                    <input type="username" name="username" placeholder="username" required></li>
+                    <li><label for="password">Password</label>
+                    <input type="password" name="password" placeholder="password" required></li>
+                    <li>
+                    <button type="submit" class="btn btn-primary">Sign up</button>
+                    </li>
+                </ul>
+            </form>
+            <h3>Log in for returning users</h3>
+            <form name="login" action="/login" method="POST" accept-charset="utf-8">
+                <ul>
+                    <li><label for="usermail">Username</label>
+                    <input type="username" name="username" placeholder="username" required></li>
+                    <li><label for="password">Password</label>
+                    <input type="password" name="password" placeholder="password" required></li>
+                    <li>
+                    <button type="submit" class="btn btn-info">Login</button>
+                    </li>
+                </ul>
+            </form>            
+            </section>
+
+        </main>
+    </div>
+
+    <% include ../partials/scripts %>
+</body>
+
+</html>

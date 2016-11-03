@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+        </header>
+        <main>
+
+<div id="tright">
+    <img src="assets/pics/FIRST-FTC17-VelocityVortex-Q-RGB.png" class="ribbon"/>
+</div>
+
+<div id="tleft">
+    <img src="assets/pics/ftc.png" class="ribbon"/>
+</div>
+
+
+    <div id="bleft">
+      <center>
+        <p>A : T</p>
+        <p>0 / 0</p>
+        <p>0 / 0</p>
+      </center>
+    </div>
+    <div id="bright">
+      <center>
+        <p>A : T</p>
+        <p>0 / 0</p>
+        <p>0 / 0</p>
+      </center>
+    </div>
+    <div id="bmid">
+      <center>
+        <p> Status </p>
+        <p> CENTER </p>
+        <p> CORNER </p>
+      </center>
+    </div>
+
+    <div id="bex">
+      <center>
+        <button id="button-play-v-once" class="button-demo">Vibrate Once</button>
+        <button id="button-play-v-thrice" class="button-demo">Vibrate Thrice</button>
+        <button id="button-stop-v" class="button-demo">Stop</button>
+      </center>
+<span id="v-unsupported" class="hidden">API not supported</span>
+    <script>
+      window.navigator = window.navigator || {};
+      if (navigator.vibrate === undefined) {
+          document.getElementById('v-unsupported').classList.remove('hidden');
+          ['button-play-v-once', 'button-play-v-thrice', 'button-stop-v'].forEach(function(elementId) {
+            document.getElementById(elementId).setAttribute('disabled', 'disabled');
+          });
+      } else {
+          document.getElementById('button-play-v-once').addEventListener('click', function() {
+            navigator.vibrate(1000);
+          });
+          document.getElementById('button-play-v-thrice').addEventListener('click', function() {
+            navigator.vibrate([1000, 500, 1000, 500, 2000]);
+          });
+          document.getElementById('button-stop-v').addEventListener('click', function() {
+            navigator.vibrate(0);
+          });
+      }
+    </script>      
+    </div>
+
+        </main>
+    </div>
+
+    <% include ../partials/scripts %>
+</body>
+
+</html>

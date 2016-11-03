@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+    </header>
+    <main>
+
+      <div id="tright">
+        <img src="assets/pics/FIRST-FTC17-VelocityVortex-Q-RGB.png" class="ribbon"/>
+      </div>
+
+      <div id="tleft">
+        <img src="assets/pics/ftc.png" class="ribbon"/>
+      </div>
+
+      <div id="bright">
+        <center>
+          <span>A : T</span>
+          <br>
+          <span class="rcena">0</span> <span>/</span> <span class="rcent">0</span>
+          <br>
+          <span class="rcora">0</span> <span>/</span> <span class="rcort">0</span>
+        </center>
+      </div>
+      <div id="bleft">
+        <center>
+          <span>A : T</span>
+          <br>
+          <span class="bcena">0</span> <span>/</span> <span class="bcent">0</span>
+          <br>
+          <span class="bcora">0</span> <span>/</span> <span class="bcort">0</span>
+        </center>
+      </div>
+      <div id="bmid">
+        <center>
+          <p> Status </p>
+          <p> CENTER </p>
+          <p> CORNER </p>
+        </center>
+      </div>
+
+      <div id="bex">
+        <center>
+          <h1 class="curStat">Current: Auto</h1>
+        </center>
+      </div>
+
+    </main>
+    <!--<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>-->
+    <script src="/assets/js/jquery-1.10.2.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/assets/js/display.js"></script>
+
+  </div>
+
+  <% include ../partials/scripts %>
+</body>
+
+</html>
