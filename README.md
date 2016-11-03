@@ -1,0 +1,11 @@
+To start, run "WindowsRun.bat"
+
+Todo: (by priority)
+
+	- Timer for display
+	- Localize Node
+	- Make it look nice (CSS)
+	- Useful Homepage leading to other views
+	- Admin page + Finalize security
+	- Finish all other possible views
+	- Mac/Linux Startup
