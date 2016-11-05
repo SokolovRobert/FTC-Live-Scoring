@@ -6,7 +6,7 @@ var io = require('..')(server);
 var port = process.env.PORT || 80;
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
-var myData = require('./data.js')
+//var myData = require('./data.js')
 var ejs = require('./node_modules/ejs/ejs.js');
 
 
@@ -39,7 +39,11 @@ app.get("/clientTest", function(request, response){
 });
 
 app.get("/display", function(request, response){
-  response.render("pages/display", { pageTitle: "Welcome, please log in or create an account" });
+  response.render("pages/displayTime", { pageTitle: "Welcome, please log in or create an account" });
+});
+
+app.get("/displayTime", function(request, response){
+  response.render("pages/displayTime", { pageTitle: "Welcome, please log in or create an account" });
 });
 
 app.get("/timer", function(request, response){
@@ -61,6 +65,12 @@ var numUsers = 0;
 io.on('connection', function (socket) {
   var addedUser = false;
 
+
+  socket.on('startTime', function (data) {
+    socket.broadcast.emit('startTime', {
+      auto: data
+    });
+  });  
 
   socket.on('addScore', function (data) {
     console.log("addReceived");
