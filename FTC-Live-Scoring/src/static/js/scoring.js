@@ -42,7 +42,7 @@ $(function() {
   }
 
   function localReset(){
-  	  r_cen_counter = 0;
+  	r_cen_counter = 0;
 	  r_cor_counter = 0;
 	  b_cen_counter = 0;
 	  b_cor_counter = 0;

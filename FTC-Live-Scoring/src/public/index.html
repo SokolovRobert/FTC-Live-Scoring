@@ -1,28 +1,30 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Socket.IO Chat Example</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <ul class="pages">
-    <li class="chat page">
-      <div class="chatArea">
-        <ul class="messages"></ul>
-      </div>
-      <input class="inputMessage" placeholder="Type here..."/>
-    </li>
-    <li class="login page">
-      <div class="form">
-        <h3 class="title">What's your nickname?</h3>
-        <input class="usernameInput" type="text" maxlength="14" />
-      </div>
-    </li>
-  </ul>
 
-  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="/main.js"></script>
-</body>
-</html>
+<HTML>
+<head>
+<style>
+@media print
+{
+  table { page-break-after:auto }
+  tr    { page-break-inside:avoid; page-break-after:auto }
+  td    { page-break-inside:avoid; page-break-after:auto }
+  thead { display:table-header-group }
+  tfoot { display:table-footer-group }
+}
+</style>
+<TITLE>Connecting to the web server</TITLE>
+</head>
+<CENTER><H2>FTC Live Scoring<BR>
+Connecting to the web server</H2></CENTER>
+<HR>
+<center>
+<p>You can then connect to the scoring system at the following address:</p>
+
+<h2>Display: <a href="http://10.0.0.232:80/display">http://10.0.0.232:80/display</a></h2>
+<h2>Blue Both: <a href="http://10.0.0.232:80/blueBoth">http://10.0.0.232:80/blueBoth</a></h2>
+<h2>Red Both: <a href="http://10.0.0.232:80/redBoth">http://10.0.0.232:80/redBoth</a></h2>
+<h2>Timer: <a href="http://10.0.0.232:80/timer">http://10.0.0.232:80/timer</a></h2>
+<h2>Score All: <a href="http://10.0.0.232:80/clientTest">http://10.0.0.232:80/clientTest</a></h2>
+
+</center>
+<CENTER><SMALL>FTC Scoring Software &copy; 2016-2017 <i>FIRST&reg;</i></CENTER></SMALL>
+</HTML>

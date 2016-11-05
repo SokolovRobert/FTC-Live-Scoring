@@ -183,6 +183,9 @@
 	min-height: 120px;
 	height: 31%;
 }
+.timeButtons button {
+	min-height: 100px;
+}
 
 button {
 	height: 50%;
