@@ -66,6 +66,11 @@ io.on('connection', function (socket) {
   var addedUser = false;
 
 
+  socket.on('stopTime', function (data) {
+    socket.broadcast.emit('stopTime', {
+    });
+  }); 
+
   socket.on('startTime', function (data) {
     socket.broadcast.emit('startTime', {
       auto: data

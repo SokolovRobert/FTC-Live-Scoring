@@ -1,3 +1,5 @@
+var a_or_t = 'a';
+
 $(function() {
   var FADE_TIME = 150; // ms
   var TYPING_TIMER_LENGTH = 400; // ms
@@ -35,9 +37,6 @@ $(function() {
   var t_r_cor_counter = 0;
   var t_b_cen_counter = 0;
   var t_b_cor_counter = 0;
-
-
-  var a_or_t = 'a';
 
   function updateScore(name, num){
     var $jsValue = document.querySelector(name);
@@ -222,13 +221,15 @@ $(function() {
       if(data.auto == 0){
         //no auto
         a_or_t = 't';
-      var $jsValue = document.getElementById("topImg");
-      $jsValue.src = "assets/pics/tele.png";  
+        var $jsValue = document.getElementById("topImg");
+        $jsValue.src = "assets/pics/tele.png";
+        stopwatch.resetNoAuto(); 
       }else{
         //yes auto
         a_or_t = 'a';
-      var $jsValue = document.getElementById("topImg");
-      $jsValue.src = "assets/pics/auto.png";  
+        var $jsValue = document.getElementById("topImg");
+        $jsValue.src = "assets/pics/auto.png";  
+        stopwatch.reset(); 
       }
       localReset();
   });
@@ -250,9 +251,11 @@ $(function() {
   socket.on('startTime', function (){
       console.log("startTime");
       stopwatch.start();
-      //a_or_t = 't';
-      //var $jsValue = document.querySelector('.curStat');
-      //$jsValue.innerHTML = "Current: Tele";      
+  });
+
+  socket.on('stopTime', function (){
+      console.log("stopTime");
+      stopwatch.stop();
   });
 
 });

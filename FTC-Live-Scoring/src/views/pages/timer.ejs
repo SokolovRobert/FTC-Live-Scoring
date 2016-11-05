@@ -12,14 +12,14 @@
 
   <div class="wrapper">
     <header class="header">FTC Live Scoring Beta - Timer Reset</header>
-    <article class="main">
+    <!--<article class="main">
       <button id="setAuto" type="button" class="btn btn-primary btn-lg btn-block">
         <span class="rcen">Auto</span>
       </button>
       <button id="setTele" type="button" class="btn btn-secondary btn-lg btn-block">
         <span class="rcor">Tele</span>
       </button>
-    </article>
+    </article>-->
     <article class="timer">
       <button id="resetTime" type="button" class="btn btn-primary btn-lg btn-block">
         <span class="rcen">Reset Timer</span>
@@ -30,10 +30,10 @@
     </article>
     <article class="timeButtons">
       <button id="startMatch" type="button" class="btn btn-primary btn-lg btn-block">
-        <span class="rcen">Start</span>
+        <span class="rcen">Start/Continue</span>
       </button>
       <button id="pause" type="button" class="btn btn-secondary btn-lg btn-block">  
-        <span class="rcor">Pause/Continue</span>
+        <span class="rcor">Stop</span>
       </button>
     </article>
     <footer class="footer">Sokolov©</footer>
@@ -73,11 +73,11 @@ requestFullScreen(elem);
   window.navigator = window.navigator || {};
   if (navigator.vibrate === undefined) {
     document.getElementById('v-unsupported').classList.remove('hidden');
-    ['setAuto', 'setTele', 'resetTime', 'startMatch', 'pause'].forEach(function(elementId) {
+    ['resetTime', 'startMatch', 'pause'].forEach(function(elementId) {
       document.getElementById(elementId).setAttribute('disabled', 'disabled');
     });
   } else {
-    ['setAuto', 'setTele', 'resetTime', 'startMatch', 'pause'].forEach(function(elementId) {
+    ['resetTime', 'startMatch', 'pause'].forEach(function(elementId) {
       document.getElementById(elementId).addEventListener('click', function() {
         navigator.vibrate(250);
       });

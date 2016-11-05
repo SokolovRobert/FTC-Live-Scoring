@@ -1,37 +1,55 @@
 class Stopwatch {
-    constructor(display, results) {
+    constructor(display) {
+        this.endGame = false;
         this.running = false;
         this.display = display;
-        this.results = results;
-        this.laps = [];
         this.reset();
         this.print(this.times);
+        this.audioStart = new Audio('assets/sounds/start.mp3');
+        this.audioEnd = new Audio('assets/sounds/FogHorn.mp3');
+        this.audioEndGame = new Audio('assets/sounds/OutOfTime.mp3');
     }
     
     reset() {
         this.times = [ 2, 30, 0];
+        this.print();
+    }
+
+    resetNoAuto(){
+        this.times = [ 2, 0, 0];
+        this.print();
     }
     
     start() {
-        if (!this.time) this.time = performance.now();
-        if (!this.running) {
+        if (this.times[0] == 2 && this.times[1] == 0){
+            this.audioStart.play();
+            
+            a_or_t = 't';
+            var $jsValue = document.getElementById("topImg");
+            $jsValue.src = "assets/pics/tele.png";               
+            
+            this.endGame = false;
+            this.times = [1, 59, 99];
+            this.time = performance.now();
+            this.running = true;
+            requestAnimationFrame(this.step.bind(this));
+        }else if(this.times[0] == 2 && this.times[1] == 30){
+            this.audioStart.play();
+
+            a_or_t = 'a';
+            var $jsValue = document.getElementById("topImg");
+            $jsValue.src = "assets/pics/auto.png";               
+            
+            this.endGame = false;
+            this.time = performance.now();
             this.running = true;
             requestAnimationFrame(this.step.bind(this));
         }
     }
     
-    lap() {
-        let times = this.times;
-        if (this.running) {
-            this.reset();
-        }
-        let li = document.createElement('li');
-        li.innerText = this.format(times);
-        this.results.appendChild(li);
-    }
-    
     stop() {
         this.running = false;
+        this.endGame = false;
         this.time = null;
     }
 
@@ -44,26 +62,53 @@ class Stopwatch {
         this.reset();
     }
     
-    clear() {
-        clearChildren(this.results);
-    }
-    
     step(timestamp) {
         if (!this.running) return;
         if (this.times[0]<=0){
-            console.log("minutes are 0");
+            //check if match is ending
             if (this.times[0]<0){
-                stop();
                 this.times = [ 0, 0, 0];
                 this.print();
+                this.audioEnd.play();
+                stop();
                 return;
             }
             if (this.times[1]<=0){
-                stop();
                 this.times = [ 0, 0, 0];
                 this.print();
+                this.audioEnd.play();
+                stop();                
                 return;
             }
+        }
+        if (this.times[0]==1){
+            //check if auto is ending
+            if (this.times[1]==60){
+                this.times = [ 2, 0, 0];
+                this.print();
+                this.audioEnd.play();
+                stop();
+                return;
+            }
+        }
+
+        if (!this.endGame){
+            //check for endgame
+            if (this.times[0]==0){
+                //tele ending
+                if(this.times[1]==30){
+                    this.endGame = true;  
+                    this.audioEndGame.play();  
+                }
+            }
+            if (this.times[0]==2){
+                //auto ending
+                if(this.times[1]==10){
+                    this.endGame = true;  
+                    this.audioEndGame.play();  
+                }
+            }
+            
         }
         this.calculate(timestamp);
         this.time = timestamp;
@@ -84,23 +129,6 @@ class Stopwatch {
             this.times[0] -= 1;
             this.times[1] += 60;
         }
-
-
-/*
-        var diff = timestamp - this.time;
-        // Hundredths of a second are 100 ms
-        this.times[2] += diff / 10;
-        // Seconds are 100 hundredths of a second
-        if (this.times[2] >= 100) {
-            this.times[1] += 1;
-            this.times[2] -= 100;
-        }
-        // Minutes are 60 seconds
-        if (this.times[1] >= 60) {
-            this.times[0] += 1;
-            this.times[1] -= 60;
-        }
-        */
     }
     
     print() {
@@ -109,9 +137,9 @@ class Stopwatch {
     
     format(times) {
         return `\
-${pad0(times[0], 2)}:\
-${pad0(times[1], 2)}:\
-${pad0(Math.floor(times[2]), 2)}`;
+        ${pad0(times[0], 2)}:\
+        ${pad0(times[1], 2)}:\
+        ${pad0(Math.floor(times[2]), 2)}`;
     }
 }
 
@@ -127,6 +155,4 @@ function clearChildren(node) {
         node.removeChild(node.lastChild);
 }
 
-let stopwatch = new Stopwatch(
-    document.querySelector('.stopwatch'),
-    document.querySelector('.results'));
+let stopwatch = new Stopwatch(document.querySelector('.stopwatch'));

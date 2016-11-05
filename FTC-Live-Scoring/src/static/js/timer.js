@@ -38,8 +38,8 @@ $(function() {
   }
 
 // Click events
-  document.getElementById("setAuto").onclick = function() {setAuto()};
-  document.getElementById("setTele").onclick = function() {setTele()};
+  //document.getElementById("setAuto").onclick = function() {setAuto()};
+  //document.getElementById("setTele").onclick = function() {setTele()};
   document.getElementById("resetTime").onclick = function() {resetMatch()};
   document.getElementById("startMatch").onclick = function() {startTime()};
   document.getElementById("pause").onclick = function() {pauseTime()};
@@ -64,6 +64,10 @@ $(function() {
       socket.emit('startTime', 1);
     }
     console.log("matchReset");
+  }  
+
+  function pauseTime() {
+    socket.emit('stopTime');
   }  
 
 });
