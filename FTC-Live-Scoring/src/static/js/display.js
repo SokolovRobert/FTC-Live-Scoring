@@ -222,13 +222,13 @@ $(function() {
       if(data.auto == 0){
         //no auto
         a_or_t = 't';
-        var $jsValue = document.querySelector('.curStat');
-        $jsValue.innerHTML = "Current: Tele";  
+      var $jsValue = document.getElementById("topImg");
+      $jsValue.src = "assets/pics/tele.png";  
       }else{
         //yes auto
         a_or_t = 'a';
-        var $jsValue = document.querySelector('.curStat');
-        $jsValue.innerHTML = "Current: Auto";
+      var $jsValue = document.getElementById("topImg");
+      $jsValue.src = "assets/pics/auto.png";  
       }
       localReset();
   });

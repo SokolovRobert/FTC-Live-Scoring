@@ -56,6 +56,16 @@ $(function() {
   	console.log("matchReset");
   }
 
+  function startTime() {
+    var autoExists=document.getElementById('autoExists');
+    if(autoExists.checked){
+      socket.emit('startTime', 0);
+    }else{
+      socket.emit('startTime', 1);
+    }
+    console.log("matchReset");
+  }  
+
 });
 
 
