@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <% include ../partials/head-red %>
+  <% include ../partials/head-blue-single %>
 </head>
 
 <body>
@@ -14,21 +14,16 @@
       <header class="header">FTC Live Scoring Beta - Both Teams</header>
       <article class="main">
         <button id="cenbun" type="button" class="btn btn-primary btn-lg btn-block">
-          <span class="rcen">0</span>
-        </button>
-        <button id="corbun" type="button" class="btn btn-secondary btn-lg btn-block">
-          <span class="rcor">0</span>
+          <span class="bcen">0</span>
         </button>
       </article>
 
       <aside class="aside aside-2">
-        <button id="r1m" type="button" class="btn btn-primary btn-lg btn-block">-</button>
-        <button id="r2m" type="button" class="btn btn-secondary btn-lg btn-block">-</button>
+        <button id="b1m" type="button" class="btn btn-primary btn-lg btn-block">-</button>
       </aside>
 
       <aside class="aside aside-4">
-        <button id="r1p" type="button" class="btn btn-primary btn-lg btn-block">+ Center +</button>
-        <button id="r2p" type="button" class="btn btn-secondary btn-lg btn-block">+ Corner +</button>
+        <button id="b1p" type="button" class="btn btn-primary btn-lg btn-block">+ Center +</button>
       </aside>
       <footer class="footer">Sokolov©</footer>
     </div>
@@ -40,7 +35,16 @@
   <!--<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>-->
   <script src="/assets/js/jquery-1.10.2.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
-  <script src="/assets/js/redBoth.js"></script>
+  <script src="/assets/js/blueCen.js">
+  </script>
+
+  <script type="text/javascript">
+    //document.getElementById("b1p").onclick = function() {add('.bcen', 3)};
+    //document.getElementById("b1m").onclick = function() {sub('.bcen', 3)};
+
+    //document.getElementById("b2p").onclick = function() {add('.bcor', 4)};
+    //document.getElementById("b2m").onclick = function() {sub('.bcor', 4)};
+  </script>
 
      <script type="text/javascript">
      function requestFullScreen(element) {
@@ -66,21 +70,21 @@ requestFullScreen(elem);
   window.navigator = window.navigator || {};
   if (navigator.vibrate === undefined) {
     document.getElementById('v-unsupported').classList.remove('hidden');
-    ['r1p', 'r1m', 'r2p', 'r2m'].forEach(function(elementId) {
+    ['b1p', 'b1m'].forEach(function(elementId) {
       document.getElementById(elementId).setAttribute('disabled', 'disabled');
     });
   } else {
-    ['r1p', 'r2p'].forEach(function(elementId) {
+    ['b1p'].forEach(function(elementId) {
       document.getElementById(elementId).addEventListener('click', function() {
         navigator.vibrate(250);
       });
     });
-    ['r1m', 'r2m'].forEach(function(elementId) {
+    ['b1m'].forEach(function(elementId) {
       document.getElementById(elementId).addEventListener('click', function() {
         navigator.vibrate([50, 100, 50]);
       });
     });   
-    ['cenbun', 'corbun'].forEach(function(elementId) {
+    ['cenbun'].forEach(function(elementId) {
       document.getElementById(elementId).addEventListener('click', function() {
         navigator.vibrate(0);
       });

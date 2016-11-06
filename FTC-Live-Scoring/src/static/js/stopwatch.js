@@ -5,9 +5,16 @@ class Stopwatch {
         this.display = display;
         this.reset();
         this.print(this.times);
-        this.audioStart = new Audio('assets/sounds/start.mp3');
-        this.audioEnd = new Audio('assets/sounds/FogHorn.mp3');
-        this.audioEndGame = new Audio('assets/sounds/OutOfTime.mp3');
+        //this.audioStart = new Audio('assets/sounds/start.mp3');
+        //this.audioEnd = new Audio('assets/sounds/FogHorn.mp3');
+        //this.audioEndGame = new Audio('assets/sounds/OutOfTime.mp3');
+
+        this.startAuto =  new Audio('assets/sounds/start-auto.wav');
+        this.startTele =  new Audio('assets/sounds/start-tele.wav');
+        this.endAuto =  new Audio('assets/sounds/end-auto.wav');
+        this.endTele =  new Audio('assets/sounds/end-tele.wav');
+        this.fogHorn =  new Audio('assets/sounds/stop-forghorn.wav');
+        this.audioEndGame =  new Audio('assets/sounds/time-endgame.wav');
     }
     
     reset() {
@@ -22,7 +29,7 @@ class Stopwatch {
     
     start() {
         if (this.times[0] == 2 && this.times[1] == 0){
-            this.audioStart.play();
+            this.startTele.play();
             
             a_or_t = 't';
             var $jsValue = document.getElementById("topImg");
@@ -34,7 +41,7 @@ class Stopwatch {
             this.running = true;
             requestAnimationFrame(this.step.bind(this));
         }else if(this.times[0] == 2 && this.times[1] == 30){
-            this.audioStart.play();
+            this.startAuto.play();
 
             a_or_t = 'a';
             var $jsValue = document.getElementById("topImg");
@@ -69,24 +76,27 @@ class Stopwatch {
             if (this.times[0]<0){
                 this.times = [ 0, 0, 0];
                 this.print();
-                this.audioEnd.play();
+                this.endTele.play();
                 stop();
                 return;
             }
             if (this.times[1]<=0){
-                this.times = [ 0, 0, 0];
-                this.print();
-                this.audioEnd.play();
-                stop();                
-                return;
+                if(this.times[2]<=3){
+                    this.times = [ 0, 0, 0];
+                    this.print();
+                    this.endTele.play();
+                    stop();                
+                    return;
+                }
             }
         }
         if (this.times[0]==1){
-            //check if auto is ending
+            //check if auto is ending 
+            //end auto
             if (this.times[1]==60){
                 this.times = [ 2, 0, 0];
                 this.print();
-                this.audioEnd.play();
+                this.endAuto.play();
                 stop();
                 return;
             }
@@ -103,7 +113,7 @@ class Stopwatch {
             }
             if (this.times[0]==2){
                 //auto ending
-                if(this.times[1]==10){
+                if(this.times[1]==19){
                     this.endGame = true;  
                     this.audioEndGame.play();  
                 }

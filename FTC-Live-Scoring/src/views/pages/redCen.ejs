@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <% include ../partials/head-red %>
+  <% include ../partials/head-red-single %>
 </head>
 
 <body>
@@ -16,19 +16,14 @@
         <button id="cenbun" type="button" class="btn btn-primary btn-lg btn-block">
           <span class="rcen">0</span>
         </button>
-        <button id="corbun" type="button" class="btn btn-secondary btn-lg btn-block">
-          <span class="rcor">0</span>
-        </button>
       </article>
 
       <aside class="aside aside-2">
         <button id="r1m" type="button" class="btn btn-primary btn-lg btn-block">-</button>
-        <button id="r2m" type="button" class="btn btn-secondary btn-lg btn-block">-</button>
       </aside>
 
       <aside class="aside aside-4">
         <button id="r1p" type="button" class="btn btn-primary btn-lg btn-block">+ Center +</button>
-        <button id="r2p" type="button" class="btn btn-secondary btn-lg btn-block">+ Corner +</button>
       </aside>
       <footer class="footer">Sokolov©</footer>
     </div>
@@ -40,7 +35,7 @@
   <!--<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>-->
   <script src="/assets/js/jquery-1.10.2.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
-  <script src="/assets/js/redBoth.js"></script>
+  <script src="/assets/js/redCen.js"></script>
 
      <script type="text/javascript">
      function requestFullScreen(element) {
@@ -66,21 +61,21 @@ requestFullScreen(elem);
   window.navigator = window.navigator || {};
   if (navigator.vibrate === undefined) {
     document.getElementById('v-unsupported').classList.remove('hidden');
-    ['r1p', 'r1m', 'r2p', 'r2m'].forEach(function(elementId) {
+    ['r1p', 'r1m'].forEach(function(elementId) {
       document.getElementById(elementId).setAttribute('disabled', 'disabled');
     });
   } else {
-    ['r1p', 'r2p'].forEach(function(elementId) {
+    ['r1p'].forEach(function(elementId) {
       document.getElementById(elementId).addEventListener('click', function() {
         navigator.vibrate(250);
       });
     });
-    ['r1m', 'r2m'].forEach(function(elementId) {
+    ['r1m'].forEach(function(elementId) {
       document.getElementById(elementId).addEventListener('click', function() {
         navigator.vibrate([50, 100, 50]);
       });
     });   
-    ['cenbun', 'corbun'].forEach(function(elementId) {
+    ['cenbun'].forEach(function(elementId) {
       document.getElementById(elementId).addEventListener('click', function() {
         navigator.vibrate(0);
       });

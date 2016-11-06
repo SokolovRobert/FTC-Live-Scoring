@@ -34,6 +34,22 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 // it will check the 'static' folder for matching files 
 app.use('/assets', express.static('static'));
 
+// all 4
+app.get("/blueCen", function(request, response){
+  response.render("pages/blueCen", { pageTitle: "Welcome, please log in or create an account" });
+});
+app.get("/blueCor", function(request, response){
+  response.render("pages/blueCor", { pageTitle: "Welcome, please log in or create an account" });
+});
+app.get("/redCen", function(request, response){
+  response.render("pages/redCen", { pageTitle: "Welcome, please log in or create an account" });
+});
+app.get("/redCor", function(request, response){
+  response.render("pages/redCor", { pageTitle: "Welcome, please log in or create an account" });
+});
+
+//end 4
+
 app.get("/clientTest", function(request, response){
   response.render("pages/clientTest", { pageTitle: "Welcome, please log in or create an account" });
 });
