@@ -6,10 +6,10 @@ https://nodejs.org/en/download/
 Todo: (by priority)
 
 - [X] Timer for display
-- [ ] Localize Node
-- [ ] Make it look nice (CSS)
-- [ ] Useful Homepage leading to other views
+- [X] Localize Node (for Windows)
+- [ ] Make it look nice (CSS) - almost there... need feedback on resolutions
+- [X] Useful Homepage leading to other views
 - [ ] Admin page + Finalize security
 - [ ] MAKE A USER GUIDE
-- [ ] Finish all other possible views
+- [X] Finish all other possible views
 - [ ] Mac/Linux Startup
