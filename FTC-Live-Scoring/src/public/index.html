@@ -21,23 +21,37 @@ Connecting to the web server</H2></CENTER>
 <HR>
 <center>
 <p>You can then connect to the scoring system at the following address:</p>
+<h2 id=thisPage>This Page: <a href="http://10.0.0.232:80/">http://10.0.0.232:80/</a></h2>
 <h2 id=display>Display: <a href="http://10.0.0.232:80/display">http://10.0.0.232:80/display</a></h2>
-<h2 id=blueBoth>Blue Both: <a href="http://10.0.0.232:80/blueBoth">http://10.0.0.232:80/blueBoth</a></h2>
+<br>
 <h2 id=RedBoth>Red Both: <a href="http://10.0.0.232:80/redBoth">http://10.0.0.232:80/redBoth</a></h2>
+<h2 id=blueBoth>Blue Both: <a href="http://10.0.0.232:80/blueBoth">http://10.0.0.232:80/blueBoth</a></h2>
+<br>
+<h2 id=redCen>Only Red Center: <a href="http://10.0.0.232:80/redCen">http://10.0.0.232:80/redCen</a></h2>
+<h2 id=redCor>Only Red Corner: <a href="http://10.0.0.232:80/redCor">http://10.0.0.232:80/redCor</a></h2>
+<h2 id=blueCen>Only Blue Center: <a href="http://10.0.0.232:80/blueCen">http://10.0.0.232:80/blueCen</a></h2>
+<h2 id=blueCor>Only Blue Corner: <a href="http://10.0.0.232:80/blueCor">http://10.0.0.232:80/blueCor</a></h2>
+<br>
 <h2 id=Timer>Timer: <a href="http://10.0.0.232:80/timer">http://10.0.0.232:80/timer</a></h2>
 <h2 id=all4>Score All: <a href="http://10.0.0.232:80/clientTest">http://10.0.0.232:80/clientTest</a></h2>
+<h2 id=admin>Admin: <a href="http://10.0.0.232:80/admin">http://10.0.0.232:80/admin</a></h2>
 
 <script type="text/javascript">
 	var tempIP = ip;
 	var tempIP = tempIP.slice(1)
 	console.log(tempIP)
 	var test = "hello";
+	document.getElementById('thisPage').innerHTML = "This Page: <a href=\"http://"+tempIP+"/\">http://"+tempIP+"/</a>";
     document.getElementById('display').innerHTML = "Display: <a href=\"http://"+tempIP+"/display\">http://"+tempIP+"/display</a>";
     document.getElementById('blueBoth').innerHTML = "Blue Both: <a href=\"http://"+tempIP+"/blueBoth\">http://"+tempIP+"/blueBoth</a>";
     document.getElementById('RedBoth').innerHTML = "Red Both: <a href=\"http://"+tempIP+"/redBoth\">http://"+tempIP+"/redBoth</a>";
     document.getElementById('Timer').innerHTML = "Timer: <a href=\"http://"+tempIP+"/timer\">http://"+tempIP+"/timer</a>";
     document.getElementById('all4').innerHTML = "Score All: <a href=\"http://"+tempIP+"/clientTest\">http://"+tempIP+"/clientTest</a>";
-
+	
+	document.getElementById('blueCen').innerHTML = "Only Blue Center: <a href=\"http://"+tempIP+"/blueCen\">http://"+tempIP+"/blueCen</a>";
+	document.getElementById('redCen').innerHTML = "Only Red Center: <a href=\"http://"+tempIP+"/redCen\">http://"+tempIP+"/redCen</a>";
+	document.getElementById('blueCor').innerHTML = "Only Blue Corner: <a href=\"http://"+tempIP+"/blueCor\">http://"+tempIP+"/blueCor</a>";
+	document.getElementById('redCor').innerHTML = "Only Red Corner: <a href=\"http://"+tempIP+"/redCor\">http://"+tempIP+"/redCor</a>";	
 </script>
 
 </center>
