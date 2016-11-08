@@ -1,7 +1,5 @@
 To start, run "WindowsRun.bat"
 
-As a non-root user, you will need to use a port above 1024, for example port 3333. Port can be changed in /FTC-Live-Scoring/src/index.js line 6
-
 Todo: (by priority)
 
 - [X] Timer for display
