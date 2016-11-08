@@ -1,5 +1,8 @@
 To start, run "WindowsRun.bat"
 
+At the moment, needs Node.
+https://nodejs.org/en/download/
+
 Todo: (by priority)
 
 - [X] Timer for display
