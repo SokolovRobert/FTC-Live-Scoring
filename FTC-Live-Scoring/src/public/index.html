@@ -13,17 +13,32 @@
 </style>
 <TITLE>Connecting to the web server</TITLE>
 </head>
+
+<script src="/assets/js/local.js"></script>
+
 <CENTER><H2>FTC Live Scoring<BR>
 Connecting to the web server</H2></CENTER>
 <HR>
 <center>
 <p>You can then connect to the scoring system at the following address:</p>
+<h2 id=display>Display: <a href="http://10.0.0.232:80/display">http://10.0.0.232:80/display</a></h2>
+<h2 id=blueBoth>Blue Both: <a href="http://10.0.0.232:80/blueBoth">http://10.0.0.232:80/blueBoth</a></h2>
+<h2 id=RedBoth>Red Both: <a href="http://10.0.0.232:80/redBoth">http://10.0.0.232:80/redBoth</a></h2>
+<h2 id=Timer>Timer: <a href="http://10.0.0.232:80/timer">http://10.0.0.232:80/timer</a></h2>
+<h2 id=all4>Score All: <a href="http://10.0.0.232:80/clientTest">http://10.0.0.232:80/clientTest</a></h2>
 
-<h2>Display: <a href="http://10.0.0.232:80/display">http://10.0.0.232:80/display</a></h2>
-<h2>Blue Both: <a href="http://10.0.0.232:80/blueBoth">http://10.0.0.232:80/blueBoth</a></h2>
-<h2>Red Both: <a href="http://10.0.0.232:80/redBoth">http://10.0.0.232:80/redBoth</a></h2>
-<h2>Timer: <a href="http://10.0.0.232:80/timer">http://10.0.0.232:80/timer</a></h2>
-<h2>Score All: <a href="http://10.0.0.232:80/clientTest">http://10.0.0.232:80/clientTest</a></h2>
+<script type="text/javascript">
+	var tempIP = ip;
+	var tempIP = tempIP.slice(1)
+	console.log(tempIP)
+	var test = "hello";
+    document.getElementById('display').innerHTML = "Display: <a href=\"http://"+tempIP+"/display\">http://"+tempIP+"/display</a>";
+    document.getElementById('blueBoth').innerHTML = "Blue Both: <a href=\"http://"+tempIP+"/blueBoth\">http://"+tempIP+"/blueBoth</a>";
+    document.getElementById('RedBoth').innerHTML = "Red Both: <a href=\"http://"+tempIP+"/redBoth\">http://"+tempIP+"/redBoth</a>";
+    document.getElementById('Timer').innerHTML = "Timer: <a href=\"http://"+tempIP+"/timer\">http://"+tempIP+"/timer</a>";
+    document.getElementById('all4').innerHTML = "Score All: <a href=\"http://"+tempIP+"/clientTest\">http://"+tempIP+"/clientTest</a>";
+
+</script>
 
 </center>
 <CENTER><SMALL>FTC Scoring Software &copy; 2016-2017 <i>FIRST&reg;</i></CENTER></SMALL>
