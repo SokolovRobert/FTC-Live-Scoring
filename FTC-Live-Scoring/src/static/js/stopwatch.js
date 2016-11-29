@@ -1,5 +1,6 @@
 class Stopwatch {
     constructor(display) {
+        this.fiveMin = false;
         this.endGame = false;
         this.running = false;
         this.display = display;
@@ -19,16 +20,25 @@ class Stopwatch {
     
     reset() {
         this.times = [ 2, 30, 0];
+        this.fiveMin = false;
         this.print();
     }
 
     resetNoAuto(){
         this.times = [ 2, 0, 0];
+        this.fiveMin = false;
+        this.print();
+    }
+
+    resetFiveMinTime(){
+        this.times = [ 5, 0, 0];
+        this.fiveMin = true;
         this.print();
     }
     
     start() {
         if (this.times[0] == 2 && this.times[1] == 0){
+            //Start Teleop
             this.startTele.play();
             
             a_or_t = 't';
@@ -41,6 +51,7 @@ class Stopwatch {
             this.running = true;
             requestAnimationFrame(this.step.bind(this));
         }else if(this.times[0] == 2 && this.times[1] == 30){
+            //Start auto
             this.startAuto.play();
 
             a_or_t = 'a';
@@ -51,12 +62,19 @@ class Stopwatch {
             this.time = performance.now();
             this.running = true;
             requestAnimationFrame(this.step.bind(this));
+        }else if(this.fiveMin){
+            //Start 5 Min Timer
+            this.endGame = false;
+            this.time = performance.now();
+            this.running = true;
+            requestAnimationFrame(this.step.bind(this));
         }
     }
     
     stop() {
         this.running = false;
         this.endGame = false;
+        this.fiveMin = false;
         this.time = null;
     }
 
@@ -90,7 +108,7 @@ class Stopwatch {
                 }
             }
         }
-        if (this.times[0]==1){
+        if (this.times[0]==1 && !this.fiveMin){
             //check if auto is ending 
             //end auto
             if (this.times[1]==60){
@@ -111,7 +129,7 @@ class Stopwatch {
                     this.audioEndGame.play();  
                 }
             }
-            if (this.times[0]==2){
+            if (this.times[0]==2 && !this.fiveMin){
                 //auto ending
                 if(this.times[1]==19){
                     this.endGame = true;  

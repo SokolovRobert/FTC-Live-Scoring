@@ -48,7 +48,10 @@ $(function() {
 
   function resetMatch() {
     var autoExists=document.getElementById('autoExists');
-    if(autoExists.checked){
+    var fiveMinTime=document.getElementById('fiveMinTime');
+    if(fiveMinTime.checked){
+      socket.emit('reset', 2);
+    }else if(autoExists.checked){
       socket.emit('reset', 0);
     }else{
       socket.emit('reset', 1);
@@ -58,7 +61,10 @@ $(function() {
 
   function startTime() {
     var autoExists=document.getElementById('autoExists');
-    if(autoExists.checked){
+    var fiveMinTime=document.getElementById('fiveMinTime');
+    if(fiveMinTime.checked){
+      socket.emit('startTime', 2);
+    }else if(autoExists.checked){
       socket.emit('startTime', 0);
     }else{
       socket.emit('startTime', 1);

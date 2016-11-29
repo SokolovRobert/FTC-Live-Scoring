@@ -224,12 +224,15 @@ $(function() {
         var $jsValue = document.getElementById("topImg");
         $jsValue.src = "assets/pics/tele.png";
         stopwatch.resetNoAuto(); 
-      }else{
+      }else if(data.auto == 1){
         //yes auto
         a_or_t = 'a';
         var $jsValue = document.getElementById("topImg");
         $jsValue.src = "assets/pics/auto.png";  
         stopwatch.reset(); 
+      }else if(data.auto ==2){
+        //5 min timer
+        stopwatch.resetFiveMinTime(); 
       }
       localReset();
   });

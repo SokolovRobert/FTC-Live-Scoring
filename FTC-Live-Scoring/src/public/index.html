@@ -14,13 +14,21 @@
 <TITLE>Connecting to the web server</TITLE>
 </head>
 
-<script src="/assets/js/local.js"></script>
+<!--<script src="/assets/js/local.js"></script>-->
+<script src="/assets/js/local1.js"></script>
+<script src="/assets/js/local2.js"></script>
+<script src="/assets/js/local3.js"></script>
 
 <CENTER><H2>FTC Live Scoring<BR>
 Connecting to the web server</H2></CENTER>
 <HR>
 <center>
 <p>You can then connect to the scoring system at the following address:</p>
+
+<h2 id=site1></h2>
+<h2 id=site2></h2>
+<h2 id=site3></h2>
+<br>
 <h2 id=thisPage>This Page: <a href="http://10.0.0.232:80/">http://10.0.0.232:80/</a></h2>
 <h2 id=display>Display: <a href="http://10.0.0.232:80/display">http://10.0.0.232:80/display</a></h2>
 <br>
@@ -37,10 +45,25 @@ Connecting to the web server</H2></CENTER>
 <h2 id=admin>Admin: <a href="http://10.0.0.232:80/admin">http://10.0.0.232:80/admin</a></h2>
 
 <script type="text/javascript">
-	var tempIP = ip;
+	var tempIP = ip1;
+	var tempIP2 = ip2;
+	var tempIP3 = ip3;
 	var tempIP = tempIP.slice(1)
+	var tempIP2 = tempIP2.slice(1)
+	var tempIP3 = tempIP3.slice(1)
 	console.log(tempIP)
 	var test = "hello";
+
+	if(ip1 != null){
+	document.getElementById('site1').innerHTML = "Field 1: <a href=\"http://"+tempIP+"/\">http://"+tempIP+"/</a>";
+	}
+	if(ip2 != null){
+	document.getElementById('site2').innerHTML = "Field 2: <a href=\"http://"+tempIP2+"/\">http://"+tempIP2+"/</a>";
+	}
+	if(ip3 != null){
+	document.getElementById('site3').innerHTML = "Field 3: <a href=\"http://"+tempIP3+"/\">http://"+tempIP3+"/</a>";
+	}
+
 	document.getElementById('thisPage').innerHTML = "This Page: <a href=\"http://"+tempIP+"/\">http://"+tempIP+"/</a>";
     document.getElementById('display').innerHTML = "Display: <a href=\"http://"+tempIP+"/display\">http://"+tempIP+"/display</a>";
     document.getElementById('blueBoth').innerHTML = "Blue Both: <a href=\"http://"+tempIP+"/blueBoth\">http://"+tempIP+"/blueBoth</a>";
