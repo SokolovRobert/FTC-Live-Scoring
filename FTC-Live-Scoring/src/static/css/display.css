@@ -19,7 +19,7 @@ html {
   .stopwatch {
     font-size: 23vw;
     height: 100%;
-    line-height: 225%;
+    line-height: 230%;
     /* 100vh */
     text-align: center;
   }
@@ -67,7 +67,7 @@ html {
     left: 1%;
     background-color: #3498DB;
     width: 28%;
-    height: 40%;
+    height: 35%;
   }
 
   #bmid{
@@ -76,7 +76,7 @@ html {
       left: 31%;
     width: 38%;
     background-color: grey;
-    height: 40%;
+    height: 35%;
     color: black;
   }
 
@@ -91,17 +91,17 @@ html {
     right: 1%;
     background-color: #E74C3C;
     width: 28%;
-    height: 40%;
+    height: 35%;
   }
 
   #bmid p {
       color: black;
-      font-size: calc(4vw + 4vh + 1vmin);
+      font-size: calc(3vw + 3vh + 1vmin);
   }
 
   #bleft span, #bright span {
     margin: 0;
-    font-size: calc(4vw + 4vh + 1vmin);
+    font-size: calc(3vw + 3vh + 1vmin);
     color: black;
   }
 }
