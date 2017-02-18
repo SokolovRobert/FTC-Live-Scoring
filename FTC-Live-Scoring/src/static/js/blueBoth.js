@@ -7,7 +7,6 @@ $(function() {
   '#3b88eb', '#3824aa', '#a700ff', '#d300e7'
   ];
 
-  var a_or_t = 'a';
   var socket = io();
 
   function addScore(zone) {
@@ -110,25 +109,6 @@ $(function() {
     		subScore(num);
     	}
 
-  // Keyboard events
-
-  $window.keydown(function (event) {
-    // Auto-focus the current input when a key is typed
-    if (!(event.ctrlKey || event.metaKey || event.altKey)) {
-    	$currentInput.focus();
-    }
-    // When the client hits ENTER on their keyboard
-    if (event.which === 13) {
-    	if (username) {
-    		sendMessage();
-    		socket.emit('stop typing');
-    		typing = false;
-    	} else {
-    		setUsername();
-    	}
-    }
-});
-
   // Click events
   document.getElementById("b1p").onclick = function() {add('.bcen', 3)};
   document.getElementById("b1m").onclick = function() {sub('.bcen', 3)};
@@ -140,27 +120,6 @@ $(function() {
   socket.on('reset', function (data){
   		console.log("gotReset");
   		localReset();
-  });
-
-  socket.on('reset', function (data){
-      console.log("gotReset " + data.auto);
-      if(data.auto == 0){
-        //no auto
-        a_or_t = 't';
-        var $jsValue = document.getElementById("topImg");
-        $jsValue.src = "assets/pics/tele.png";
-        stopwatch.resetNoAuto(); 
-      }else if(data.auto == 1){
-        //yes auto
-        a_or_t = 'a';
-        var $jsValue = document.getElementById("topImg");
-        $jsValue.src = "assets/pics/auto.png";  
-        stopwatch.reset(); 
-      }else if(data.auto ==2){
-        //5 min timer
-        stopwatch.resetFiveMinTime(); 
-      }
-      localReset();
   });
 
 

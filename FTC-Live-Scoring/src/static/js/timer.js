@@ -65,10 +65,6 @@ $(function() {
     socket.emit('stopTime');
   }  
 
-  function testTest(){
-
-  }
-
 });
 
 
