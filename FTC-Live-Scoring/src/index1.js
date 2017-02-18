@@ -74,6 +74,11 @@ app.get("/redBoth", function(request, response){
   response.render("pages/redBoth", { pageTitle: "Welcome, please log in or create an account" });
 });
 
+app.get("/music", function(request, response){
+  response.render("pages/music", { pageTitle: "Welcome, please log in or create an account" });
+});
+
+
 // Chatroom
 
 var numUsers = 0;

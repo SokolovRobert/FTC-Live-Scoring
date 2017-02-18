@@ -26,17 +26,6 @@ $(function() {
 
   var socket = io();
 
-
-  function setAuto(){
-    socket.emit('setAuto');
-    console.log("autoSet");
-  }
-
-  function setTele(){
-    socket.emit('setTele');
-    console.log("teleSet");
-  }
-
 // Click events
   //document.getElementById("setAuto").onclick = function() {setAuto()};
   //document.getElementById("setTele").onclick = function() {setTele()};
@@ -75,6 +64,10 @@ $(function() {
   function pauseTime() {
     socket.emit('stopTime');
   }  
+
+  function testTest(){
+
+  }
 
 });
 

@@ -7,23 +7,7 @@ $(function() {
   '#3b88eb', '#3824aa', '#a700ff', '#d300e7'
   ];
 
-  // Initialize variables
-  var $window = $(window);
-  var $usernameInput = $('.usernameInput'); // Input for username
-  var $messages = $('.messages'); // Messages area
-  var $inputMessage = $('.inputMessage'); // Input message input box
-
-
-  var $loginPage = $('.login.page'); // The login page
-  var $chatPage = $('.chat.page'); // The chatroom page
-
-  // Prompt for setting a username
-  var username;
-  var connected = false;
-  var typing = false;
-  var lastTypingTime;
-  var $currentInput = $usernameInput.focus();
-
+  var a_or_t = 'a';
   var socket = io();
 
   function addScore(zone) {
@@ -158,24 +142,28 @@ $(function() {
   		localReset();
   });
 
-  socket.on('setAuto', function (){
-  		console.log("gotAuto");
-  		localReset();
+  socket.on('reset', function (data){
+      console.log("gotReset " + data.auto);
+      if(data.auto == 0){
+        //no auto
+        a_or_t = 't';
+        var $jsValue = document.getElementById("topImg");
+        $jsValue.src = "assets/pics/tele.png";
+        stopwatch.resetNoAuto(); 
+      }else if(data.auto == 1){
+        //yes auto
+        a_or_t = 'a';
+        var $jsValue = document.getElementById("topImg");
+        $jsValue.src = "assets/pics/auto.png";  
+        stopwatch.reset(); 
+      }else if(data.auto ==2){
+        //5 min timer
+        stopwatch.resetFiveMinTime(); 
+      }
+      localReset();
   });
 
-  socket.on('setTele', function (){
-  		console.log("gotTele");
-  		localReset();
-  });
 
-  socket.on('new message', function (data) {
-    //addChatMessage(data);
-    console.log("Got a new message!");
-});
-
-  socket.on('newScore', function (data){
-  	console.log("Got score: ");
-  });
 });
 
 

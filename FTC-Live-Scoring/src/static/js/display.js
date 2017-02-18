@@ -237,20 +237,6 @@ $(function() {
       localReset();
   });
 
-  socket.on('setAuto', function (){
-      console.log("gotAuto");
-      a_or_t = 'a';
-      var $jsValue = document.getElementById("topImg");
-      $jsValue.src = "assets/pics/auto.png";  
-  });
-
-  socket.on('setTele', function (){
-      console.log("gotTele");
-      a_or_t = 't';
-      var $jsValue = document.getElementById("topImg");
-      $jsValue.src = "assets/pics/tele.png";      
-  });
-
   socket.on('startTime', function (){
       console.log("startTime");
       stopwatch.start();

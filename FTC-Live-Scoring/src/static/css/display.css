@@ -9,93 +9,204 @@ html {
   font-family: Menlo;
 }
 
-.stopwatch {
-  font-size: 23vw;
-  height: 100%;
-  line-height: 275%;
-  /* 100vh */
-  text-align: center;
-}
-
-#tright {
-    position: relative;
-}
-#tright img {
-    position: absolute;
-    top: 10px;
-    right: 0px;
-    width: 20%;
-}
-
-#tleft {
-    position: relative;
+/*
+  w * h 
+  1920*1080
+  1600*1200
+  1280*1024
+*/
+@media only screen and (max-width: 1920px) {
+  .stopwatch {
+    font-size: 23vw;
+    height: 100%;
+    line-height: 225%;
+    /* 100vh */
     text-align: center;
-}
-#tleft img {
+  }
+
+  #tright {
+      position: relative;
+  }
+  #tright img {
+      position: absolute;
+      top: -10px;
+      right: 0px;
+      width: 20%;
+  }
+
+  #tleft {
+      position: relative;
+      text-align: center;
+  }
+  #tleft img {
+      position: absolute;
+      top: 25px;
+      left: 10px;
+      width: 20%;
+  }
+
+  #tmid {
+    position: relative;
+  }
+  #tmid img {
+      position: absolute;
+      left: 25%;
+      top: 155px;
+      width: 50%;
+  }
+
+  #bottom {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+  }
+
+  #bleft {
+    position: fixed;
+    bottom: 10px; 
+    left: 1%;
+    background-color: #3498DB;
+    width: 28%;
+    height: 40%;
+  }
+
+  #bmid{
     position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 20%;
+    bottom: 10px;
+      left: 31%;
+    width: 38%;
+    background-color: grey;
+    height: 40%;
+    color: black;
+  }
+
+  #one #two {
+    color: red;
+    background: yellow;
+  }
+
+  #bright{
+    position: fixed;
+    bottom: 10px;
+    right: 1%;
+    background-color: #E74C3C;
+    width: 28%;
+    height: 40%;
+  }
+
+  #bmid p {
+      color: black;
+      font-size: calc(4vw + 4vh + 1vmin);
+  }
+
+  #bleft span, #bright span {
+    margin: 0;
+    font-size: calc(4vw + 4vh + 1vmin);
+    color: black;
+  }
 }
 
-#tmid {
-  position: relative;
-}
-#tmid img {
+/* -------------------------------------------- */
+
+@media only screen and (max-width: 1620px) {
+  .stopwatch {
+    font-size: 23vw;
+    height: 100%;
+    line-height: 275%;
+    /* 100vh */
+    text-align: center;
+  }
+
+  #tright {
+      position: relative;
+  }
+  #tright img {
+      position: absolute;
+      top: 10px;
+      right: 0px;
+      width: 20%;
+  }
+
+  #tleft {
+      position: relative;
+      text-align: center;
+  }
+  #tleft img {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 20%;
+  }
+
+  #tmid {
+    position: relative;
+  }
+  #tmid img {
+      position: absolute;
+      left: 25%;
+      top: 75px;
+      width: 50%;
+  }
+
+  #bottom {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+  }
+
+  #bleft {
+    position: fixed;
+    bottom: 10px; 
+    left: 1%;
+    background-color: #3498DB;
+    width: 28%;
+    height: 40%;
+  }
+
+
+
+  #bmid{
     position: absolute;
-    left: 25%;
-    top: 75px;
-    width: 50%;
+    bottom: 10px;
+      left: 31%;
+    width: 38%;
+    background-color: grey;
+    height: 40%;
+    color: black;
+  }
+
+  #one #two {
+    color: red;
+    background: yellow;
+  }
+
+  #bright{
+    position: fixed;
+    bottom: 10px;
+    right: 1%;
+    background-color: #E74C3C;
+    width: 28%;
+    height: 40%;
+  }
+
+  #bmid p {
+      color: black;
+      font-size: calc(4vw + 4vh + 2vmin);
+  }
+
+  #bleft span, #bright span {
+    margin: 0;
+    font-size: calc(4vw + 4vh + 2vmin);
+    color: black;
+  }
+
 }
 
-#bottom {
-  position: fixed;
-  bottom: 0px;
-  width: 100%;
-}
+/* -------------------------------------------- */
 
-#bleft {
-  position: fixed;
-  bottom: 10px; 
-  left: 1%;
-  background-color: #3498DB;
-  width: 28%;
-  height: 40%;
-}
-
-
-
-#bmid{
-  position: absolute;
-  bottom: 10px;
-    left: 31%;
-  width: 38%;
-  background-color: grey;
-  height: 40%;
-  color: black;
-}
-
-#one #two {
-  color: red;
-  background: yellow;
-}
-
-#bright{
-  position: fixed;
-  bottom: 10px;
-  right: 1%;
-  background-color: #E74C3C;
-  width: 28%;
-  height: 40%;
-}
-
-#bmid p {
-  color: black;
-  font-size: calc(4vw + 4vh + 2vmin);
-}
-
-#bleft span, #bright span {
-  margin: 0;
-  font-size: calc(4vw + 4vh + 2vmin);
-  color: black;
+@media only screen and (max-width: 1280) {
+  #bmid p {
+    color: orange;
+    font-size: calc(4vw + 4vh + 2vmin);
+  }
 }
