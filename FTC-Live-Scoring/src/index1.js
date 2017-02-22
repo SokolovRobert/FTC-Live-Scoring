@@ -58,6 +58,10 @@ app.get("/display", function(request, response){
   response.render("pages/displayTime", { pageTitle: "Welcome, please log in or create an account" });
 });
 
+app.get("/displayNew", function(request, response){
+  response.render("pages/displayNew", { pageTitle: "Welcome, please log in or create an account" });
+});
+
 app.get("/displayTime", function(request, response){
   response.render("pages/displayTime", { pageTitle: "Welcome, please log in or create an account" });
 });
