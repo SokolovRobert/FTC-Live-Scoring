@@ -9,8 +9,9 @@ var cookieParser = require('cookie-parser');
 //var myData = require('./data.js')
 var ejs = require('./node_modules/ejs/ejs.js');
 
-
-
+var myData = require('./matchData.js')
+console.log(myData.test);
+console.log("*******************");
 
 server.listen(port, function () {
   console.log('Server listening at port %d', port);

@@ -3,13 +3,14 @@ var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
 var io = require('..')(server);
-var port = process.env.PORT || 1111;
+var port = process.env.PORT || 4444;
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 //var myData = require('./data.js')
 var ejs = require('./node_modules/ejs/ejs.js');
 
-//var myData = require('./matchData.js')
+
+
 
 server.listen(port, function () {
   console.log('Server listening at port %d', port);
@@ -33,12 +34,6 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 // it will check the 'static' folder for matching files 
 app.use('/assets', express.static('static'));
 
-
-/* FOR MATCH DATA */
-//console.log(myData);
-//myData.getMatchData();
-//console.log("*******************");
-
 // all 4
 app.get("/blueCen", function(request, response){
   response.render("pages/blueCen", { pageTitle: "Welcome, please log in or create an account" });
@@ -59,20 +54,16 @@ app.get("/clientTest", function(request, response){
   response.render("pages/clientTest", { pageTitle: "Welcome, please log in or create an account" });
 });
 
-app.get("/matchUpload", function(request, response){
-  response.render("pages/matchUpload", { pageTitle: "Welcome, please log in or create an account" });
+app.get("/display", function(request, response){
+  response.render("pages/displayTime", { pageTitle: "Welcome, please log in or create an account" });
 });
 
-app.get("/display", function(request, response){
+app.get("/displayTime", function(request, response){
   response.render("pages/displayTime", { pageTitle: "Welcome, please log in or create an account" });
 });
 
 app.get("/displayNew", function(request, response){
   response.render("pages/displayNew", { pageTitle: "Welcome, please log in or create an account" });
-});
-
-app.get("/displayTime", function(request, response){
-  response.render("pages/displayTime", { pageTitle: "Welcome, please log in or create an account" });
 });
 
 app.get("/timer", function(request, response){
@@ -86,11 +77,6 @@ app.get("/blueBoth", function(request, response){
 app.get("/redBoth", function(request, response){
   response.render("pages/redBoth", { pageTitle: "Welcome, please log in or create an account" });
 });
-
-app.get("/music", function(request, response){
-  response.render("pages/music", { pageTitle: "Welcome, please log in or create an account" });
-});
-
 
 // Chatroom
 
