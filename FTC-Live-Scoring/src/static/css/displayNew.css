@@ -9,6 +9,23 @@ html {
   font-family: Menlo;
 }
 
+
+
+/*
+  w * h 
+  1920*1080
+  1600*1200
+  1280*1024
+*/
+@media only screen and (max-width: 1920px) {
+  .stopwatch {
+    font-size: 23vw;
+    height: 100%;
+    line-height: 230%;
+    /* 100vh */
+    text-align: center;
+  }
+
 #rcena, #rcora, #rcent, #rcort {
     background: #E74C3C;
     border-radius: 25px;
@@ -45,21 +62,6 @@ html {
     margin-left: auto;
     margin-right: auto;
 }
-
-/*
-  w * h 
-  1920*1080
-  1600*1200
-  1280*1024
-*/
-@media only screen and (max-width: 1920px) {
-  .stopwatch {
-    font-size: 23vw;
-    height: 100%;
-    line-height: 230%;
-    /* 100vh */
-    text-align: center;
-  }
 
   #tright {
       position: relative;
@@ -136,7 +138,122 @@ html {
 /* -------------------------------------------- */
 
 @media only screen and (max-width: 1620px) {
+.stopwatch {
+    font-size: 23vw;
+    height: 100%;
+    line-height: 290%;
+    /* 100vh */
+    text-align: center;
+  }
 
+#rcena, #rcora, #rcent, #rcort {
+    background: #E74C3C;
+    border-radius: 25px;
+    border: 8px solid black;
+    padding: 0px; 
+    width: 200px;
+    height: 140px;  
+    font-size: 130px;
+}
+
+#bcena, #bcora, #bcent, #bcort {
+    background: #3498DB;
+    border-radius: 25px;
+    border: 8px solid black;
+    padding: 0px; 
+    width: 200px;
+    height: 140px;  
+    font-size: 130px;
+}
+
+#bmid{
+  position: absolute;
+  bottom: 0px;
+  left: 31%;
+  width: 20%;
+  background-color: white;
+  height: 38%;
+  color: black;
+}
+
+#bmid img {
+  background-color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+  #tright {
+      position: relative;
+  }
+  #tright img {
+      position: absolute;
+      top: -10px;
+      right: 0px;
+      width: 18%;
+  }
+
+  #tleft {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 23%;
+    font-size: 80px;
+    text-align:center;
+  }
+
+  #tr1, #tr2, #tr3{
+    font-size: 65px;
+    color: red;
+    text-align:right;
+  }
+
+  #tb1, #tb2, #tb3{
+    font-size: 65px;
+    color: blue;
+  }
+
+  #tmid {
+    position: relative;
+  }
+  #tmid img {
+      position: absolute;
+      left: 28%;
+      top: 110px;
+      width: 50%;
+  }
+
+  #bottom {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+  }
+
+  #bleft {
+    position: fixed;
+    bottom: 15px; 
+    left: 1%;
+    background-color: white;
+    width: 28%;
+    height: 35%;
+    z-index: 10;
+  }
+
+  #bright{
+    position: fixed;
+    bottom: 15px;
+    right: 1%;
+    background-color: white;
+    width: 28%;
+    height: 35%;
+    z-index: 10;
+  }
+
+  #bleft span, #bright span {
+    margin: 0;
+    font-size: calc(2vw + 2vh + 1vmin);
+    color: black;
+  }
 }
 
 /* -------------------------------------------- */
