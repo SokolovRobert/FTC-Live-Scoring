@@ -9,7 +9,7 @@ var cookieParser = require('cookie-parser');
 //var myData = require('./data.js')
 var ejs = require('./node_modules/ejs/ejs.js');
 
-//var myData = require('./matchData.js')
+var myData = require('./matchData.js')
 
 server.listen(port, function () {
   console.log('Server listening at port %d', port);
@@ -35,9 +35,9 @@ app.use('/assets', express.static('static'));
 
 
 /* FOR MATCH DATA */
-//console.log(myData);
-//myData.getMatchData();
-//console.log("*******************");
+console.log(myData);
+myData.getMatchData();
+console.log("*******************");
 
 // all 4
 app.get("/blueCen", function(request, response){
@@ -99,6 +99,20 @@ var numUsers = 0;
 io.on('connection', function (socket) {
   var addedUser = false;
 
+  socket.on('getMatch', function (data){
+    socket.broadcast.emit('sendMatch',{
+    });
+  });
+
+  socket.on('addMatch', function (data) {
+    socket.broadcast.emit('addMatch', {
+    });
+  }); 
+
+  socket.on('subMatch', function (data) {
+    socket.broadcast.emit('subMatch', {
+    });
+  });   
 
   socket.on('stopTime', function (data) {
     socket.broadcast.emit('stopTime', {

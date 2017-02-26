@@ -85,6 +85,15 @@ var numUsers = 0;
 io.on('connection', function (socket) {
   var addedUser = false;
 
+  socket.on('addMatch', function (data) {
+    socket.broadcast.emit('addMatch', {
+    });
+  }); 
+
+  socket.on('subMatch', function (data) {
+    socket.broadcast.emit('subMatch', {
+    });
+  });
 
   socket.on('stopTime', function (data) {
     socket.broadcast.emit('stopTime', {

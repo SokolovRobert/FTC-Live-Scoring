@@ -11,19 +11,19 @@
     </header>
     <main>
       <div id="tleft">
-        <strong><p">Match 1</p></strong>
+        <strong><p id="currMatch" class="currMatch">Match 0</p></strong>
           <div style="float:left; width: 10%">
             <strong>
-              <p id="tb1">12345</p>
-              <p id="tb2">6789</p>
-              <p id="tb3">999</p>
+              <p id="tb1" class="tb1">12345</p>
+              <p id="tb2" class="tb2">6789</p>
+              <p id="tb3" class="tb3">999</p>
             </strong>
           </div>
           <div style="float:right;">
             <strong>
-              <p id="tr1">12345</p>
-              <p id="tr2">6789</p>
-              <p id="tr3">999</p>
+              <p id="tr1" class="tr1">12345</p>
+              <p id="tr2" class="tr2">6789</p>
+              <p id="tr3" class="tr3">999</p>
             </strong>
           </div>        
       </div>
@@ -81,8 +81,10 @@
     </main>
     <script src="/assets/js/jquery-1.10.2.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="/assets/js/displayNew.js"></script>
 
+    <script src="/assets/js/matchTeamData.js"></script>
+
+    <script src="/assets/js/displayNew.js"></script>
     <script src="/assets/js/stopwatch.js"></script>
   </div>
 

@@ -1,16 +1,11 @@
 var a_or_t = 'a';
+var matchTeamData = teamData;
 
 $(function() {
-  var FADE_TIME = 150; // ms
-  var TYPING_TIMER_LENGTH = 400; // ms
-  var COLORS = [
-  '#e21400', '#91580f', '#f8a700', '#f78b00',
-  '#58dc00', '#287b00', '#a8f07a', '#4ae8c4',
-  '#3b88eb', '#3824aa', '#a700ff', '#d300e7'
-  ];
-
 
   var socket = io();
+
+  var currMatch = -1;
 
   var a_r_cen_counter = 0;
   var a_r_cor_counter = 0;
@@ -21,6 +16,68 @@ $(function() {
   var t_r_cor_counter = 0;
   var t_b_cen_counter = 0;
   var t_b_cor_counter = 0;
+
+  function addMatch(){
+    if(currMatch>=matchTeamData.length-1){
+      var $jsValue = document.querySelector('.currMatch');
+      $jsValue.innerHTML = "";      
+      return;
+    }
+    currMatch++;
+    var $jsValue = document.querySelector('.currMatch');
+    $jsValue.innerHTML = "Match "+(currMatch+1);
+
+    if(matchTeamData[currMatch][2] != 0){
+      var $jsValue = document.querySelector('.tr3');
+      $jsValue.innerHTML = matchTeamData[currMatch][2];   
+      var $jsValue = document.querySelector('.tb3');
+      $jsValue.innerHTML = matchTeamData[currMatch][5];             
+    }else{
+      var $jsValue = document.querySelector('.tr3');
+      $jsValue.innerHTML = "";   
+      var $jsValue = document.querySelector('.tb3');
+      $jsValue.innerHTML = "";        
+    }
+
+    var $jsValue = document.querySelector('.tb1');
+    $jsValue.innerHTML = matchTeamData[currMatch][3];
+    var $jsValue = document.querySelector('.tb2');
+    $jsValue.innerHTML = matchTeamData[currMatch][4];
+    var $jsValue = document.querySelector('.tr1');
+    $jsValue.innerHTML = matchTeamData[currMatch][0];
+    var $jsValue = document.querySelector('.tr2');
+    $jsValue.innerHTML = matchTeamData[currMatch][1];                
+  }
+
+
+  function subMatch(){
+    if(currMatch<=0){
+      return;
+    }
+    currMatch--;
+    var $jsValue = document.querySelector('.currMatch');
+    $jsValue.innerHTML = "Match "+(currMatch+1);
+    if(matchTeamData[currMatch][2] != 0){
+      var $jsValue = document.querySelector('.tr3');
+      $jsValue.innerHTML = matchTeamData[currMatch][2];   
+      var $jsValue = document.querySelector('.tb3');
+      $jsValue.innerHTML = matchTeamData[currMatch][5];             
+    }else{
+      var $jsValue = document.querySelector('.tr3');
+      $jsValue.innerHTML = "";   
+      var $jsValue = document.querySelector('.tb3');
+      $jsValue.innerHTML = "";        
+    }
+
+    var $jsValue = document.querySelector('.tb1');
+    $jsValue.innerHTML = matchTeamData[currMatch][3];
+    var $jsValue = document.querySelector('.tb2');
+    $jsValue.innerHTML = matchTeamData[currMatch][4];
+    var $jsValue = document.querySelector('.tr1');
+    $jsValue.innerHTML = matchTeamData[currMatch][0];
+    var $jsValue = document.querySelector('.tr2');
+    $jsValue.innerHTML = matchTeamData[currMatch][1];      
+  }
 
   function updateScore(name, num){
     var $jsValue = document.querySelector(name);
@@ -229,6 +286,14 @@ $(function() {
   socket.on('stopTime', function (){
       console.log("stopTime");
       stopwatch.stop();
+  });
+
+  socket.on('addMatch', function (){
+      addMatch();
+  });
+
+    socket.on('subMatch', function (){
+      subMatch();
   });
 
 });

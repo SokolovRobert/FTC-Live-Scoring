@@ -33,7 +33,16 @@ $(function() {
   document.getElementById("startMatch").onclick = function() {startTime()};
   document.getElementById("pause").onclick = function() {pauseTime()};
 
+  document.getElementById("addMatch").onclick = function() {addMatch()};
+  document.getElementById("subMatch").onclick = function() {subMatch()};
 
+  function addMatch(){
+    socket.emit('addMatch');
+  }
+
+  function subMatch(){
+    socket.emit('subMatch');
+  }
 
   function resetMatch() {
     var autoExists=document.getElementById('autoExists');

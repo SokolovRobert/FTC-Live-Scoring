@@ -1,5 +1,5 @@
 module.exports = { 
-    getMatchData: function(){
+    getMatchData: function(callback){
         var inputText = "";
         fs = require('fs')
         fs.readFile('../../matches.txt', 'utf8', function (err,data) {
@@ -10,7 +10,6 @@ module.exports = {
           //console.log(data);
           var x;
           var matchTeamData = new Array(inputText.split(/\r\n|\r|\n/).length+1);
-          var finalTeamData = "[\n";
           for(x=0; x<inputText.split(/\r\n|\r|\n/).length; x++){
               var firstLine = inputText.split('\n')[x];
               console.log(firstLine);
@@ -48,9 +47,7 @@ module.exports = {
               start = firstLine.indexOf("|",fin);
               fin = firstLine.indexOf("|",start+1);          
 
-              matchTeamData[x] = ["t1", "t2", "t3"];
-              finalTeamData+= "[\""+red1+"\", \""+red2+"\", \""+red3+"\",\""
-                              +blue1+"\", \""+blue2+"\", \""+blue3+"\"],\n";
+              matchTeamData[x] = "test";
 
               console.log("matchType: "+matchType);
               console.log("matchNumber: "+matchNumber);
@@ -58,17 +55,9 @@ module.exports = {
               console.log("Teams:"+blue1+", "+blue2+", "+blue3);            
 
           }
-          finalTeamData += "[\" \",\" \",\" \",\" \",\" \",\" \"]\n];\n";
           console.log("I finished...\n\n\n\n\n");
           console.log(matchTeamData);
-
-          var fs = require('fs');
-          fs.writeFile("static/js/matchTeamData.js", "var teamData = "+finalTeamData, function(err) {
-              if(err) {
-                  return console.log(err);
-              }
-              console.log("The file was saved!");
-          }); 
+          return matchTeamData;
         });
     }
 
