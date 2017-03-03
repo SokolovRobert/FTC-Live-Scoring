@@ -75,6 +75,14 @@ app.get("/displayTime", function(request, response){
   response.render("pages/displayTime", { pageTitle: "Welcome, please log in or create an account" });
 });
 
+app.get("/displayGreenScreen", function(request, response){
+  response.render("pages/displayGreenScreen", { pageTitle: "Welcome, please log in or create an account" });
+});
+
+app.get("/displayBottomOnly", function(request, response){
+  response.render("pages/displayBottomOnly", { pageTitle: "Welcome, please log in or create an account" });
+});
+
 app.get("/timer", function(request, response){
   response.render("pages/timer", { pageTitle: "Welcome, please log in or create an account" });
 });

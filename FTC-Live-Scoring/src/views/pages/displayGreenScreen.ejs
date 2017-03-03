@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../partials/displayGreenScreen %>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+    </header>
+    <main>
+      <div id="tleft">
+        <strong><p id="currMatch" class="currMatch">Match 0</p></strong>
+          <div style="float:left; width: 10%">
+            <strong>
+              <p id="tb1" class="tb1">12345</p>
+              <p id="tb2" class="tb2">6789</p>
+              <p id="tb3" class="tb3">999</p>
+            </strong>
+          </div>
+          <div style="float:right;">
+            <strong>
+              <p id="tr1" class="tr1">12345</p>
+              <p id="tr2" class="tr2">6789</p>
+              <p id="tr3" class="tr3">999</p>
+            </strong>
+          </div>        
+      </div>
+      <div id="tright">
+        <strong><div id="timer">
+          <div id="stopwatch" class="stopwatch"></div>
+        </div></strong>
+      </div>
+
+
+
+
+      <div id="bright">
+          <div style="float:left; width: 50%">
+            <center>
+              <p id="rcent" class="rcent">0</p>
+              <span><strong>Driver</strong></span>
+              <p id="rcort" class="rcort">10</p>
+            </center>
+          </div>
+          <div style="float:right;">
+            <center>
+              <p id="rcena" class="rcena">22</p>
+              <span><strong>Auto</strong></span>
+              <p id="rcora" class="rcora">33</p>
+            </center>
+          </div>
+      </div>
+      <div id="bleft">
+          <div style="float:left; width: 50%">
+            <center>
+              <p id="bcena" class="bcena">0</p>
+              <span><strong>Auto</strong></span>
+              <p id="bcora" class="bcora">10</p>
+            </center>
+          </div>
+          <div style="float:right;">
+            <center>
+              <p id="bcent" class="bcent">22</p>
+              <span><strong>Driver</strong></span>
+              <p id="bcort" class="bcort">33</p>
+            </center>
+          </div>
+      </div>
+      <!--<div class="curStat">Current: Auto</div>-->
+
+    </main>
+    <script src="/assets/js/jquery-1.10.2.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script src="/assets/js/matchTeamData.js"></script>
+
+    <script src="/assets/js/displayGreenScreen.js"></script>
+    <script src="/assets/js/stopwatchNoMS.js"></script>
+  </div>
+
+  <% include ../partials/scripts %>
+</body>
+
+</html>

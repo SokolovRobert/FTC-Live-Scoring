@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../partials/displayBottomOnly %>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+    </header>
+    <main>
+      <div id="stopwatch" class="stopwatch"></div>      
+      <div id="bright">
+          <div style="float:left; width: 50%">
+            <center>
+              <p id="rcent" class="rcent">0</p>
+              <span><strong>Driver</strong></span>
+              <p id="rcort" class="rcort">10</p>
+            </center>
+          </div>
+          <div style="float:right;">
+            <center>
+              <p id="rcena" class="rcena">22</p>
+              <span><strong>Auto</strong></span>
+              <p id="rcora" class="rcora">33</p>
+            </center>
+          </div>
+      </div>
+      <div id="bleft">
+          <div style="float:left; width: 50%">
+            <center>
+              <p id="bcena" class="bcena">0</p>
+              <span><strong>Auto</strong></span>
+              <p id="bcora" class="bcora">10</p>
+            </center>
+          </div>
+          <div style="float:right;">
+            <center>
+              <p id="bcent" class="bcent">22</p>
+              <span><strong>Driver</strong></span>
+              <p id="bcort" class="bcort">33</p>
+            </center>
+          </div>
+      </div>
+      <div id="bmid">
+        <img src="/assets/pics/CenterPieceSized.png" height="100%">
+      </div>
+
+      <!--<div class="curStat">Current: Auto</div>-->
+
+    </main>
+    <script src="/assets/js/jquery-1.10.2.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script src="/assets/js/matchTeamData.js"></script>
+
+    <script src="/assets/js/displayBottomOnly.js"></script>
+    <script src="/assets/js/stopwatchNoMS.js"></script>
+  </div>
+
+  <% include ../partials/scripts %>
+</body>
+
+</html>
