@@ -17,6 +17,35 @@ $(function() {
   var t_b_cen_counter = 0;
   var t_b_cor_counter = 0;
 
+  function editMatch(matchInfo){
+    console.log(matchInfo.match);
+
+    var $jsValue = document.querySelector('.currMatch');
+    $jsValue.innerHTML = (matchInfo.match[0]);
+
+    if(matchInfo.match[3] != 0){
+      var $jsValue = document.querySelector('.tr3');
+      $jsValue.innerHTML = matchInfo.match[3];   
+      var $jsValue = document.querySelector('.tb3');
+      $jsValue.innerHTML = matchInfo.match[6];             
+    }else{
+      var $jsValue = document.querySelector('.tr3');
+      $jsValue.innerHTML = "";   
+      var $jsValue = document.querySelector('.tb3');
+      $jsValue.innerHTML = "";        
+    }
+
+    var $jsValue = document.querySelector('.tb1');
+    $jsValue.innerHTML = matchInfo.match[4];
+    var $jsValue = document.querySelector('.tb2');
+    $jsValue.innerHTML = matchInfo.match[5];
+    var $jsValue = document.querySelector('.tr1');
+    $jsValue.innerHTML = matchInfo.match[1];
+    var $jsValue = document.querySelector('.tr2');
+    $jsValue.innerHTML = matchInfo.match[2];   
+
+  }
+
   function addMatch(){
     if(currMatch>=matchTeamData.length-1){
       var $jsValue = document.querySelector('.currMatch');
@@ -247,6 +276,12 @@ $(function() {
 
   // Socket events
   // Whenever the server emits 'new message', update the chat body
+  socket.on('editTeams', function (data) {
+    editMatch(data);
+    console.log("Match Updated");
+});
+
+
   socket.on('addScore', function (data) {
     addScore(data);
     console.log("Got a new message!");

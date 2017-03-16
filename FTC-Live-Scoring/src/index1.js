@@ -83,6 +83,10 @@ app.get("/displayBottomOnly", function(request, response){
   response.render("pages/displayBottomOnly", { pageTitle: "Welcome, please log in or create an account" });
 });
 
+app.get("/editTeams", function(request, response){
+  response.render("pages/editTeams", { pageTitle: "Welcome, please log in or create an account" });
+});
+
 app.get("/timer", function(request, response){
   response.render("pages/timer", { pageTitle: "Welcome, please log in or create an account" });
 });
@@ -106,6 +110,12 @@ var numUsers = 0;
 
 io.on('connection', function (socket) {
   var addedUser = false;
+
+  socket.on('editTeams', function (data) {
+    socket.broadcast.emit('editTeams', {
+      match: data
+    });
+  });  
 
   socket.on('getMatch', function (data){
     socket.broadcast.emit('sendMatch',{

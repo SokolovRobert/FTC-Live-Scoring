@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body>
+  <header>
+  </header>
+  <!--<main onclick="requestFullScreen(document.body)">-->
+
+  <div class="wrapper">
+    <header class="header">FTC Live Scoring Beta - Timer Reset</header>
+    <!--<article class="main">
+      <button id="setAuto" type="button" class="btn btn-primary btn-lg btn-block">
+        <span class="rcen">Auto</span>
+      </button>
+      <button id="setTele" type="button" class="btn btn-secondary btn-lg btn-block">
+        <span class="rcor">Tele</span>
+      </button>
+    </article>-->
+    <article class="timer">
+      <div>
+        <div>
+          <center>
+            Match: <input id="matchNum" type="text" name="FirstName" value="SF-1"><br>
+          </center>
+        </div>
+        <div style="width: 50%; float:left">
+          Red 1: <input id="red1" type="text" name="FirstName" value="Mickey"><br>
+          Red 2: <input id="red2" type="text" name="LastName" value="Mouse"><br>
+          Red 3: <input id="red3" type="text" name="LastName" value="Mouse"><br>
+        </div>
+
+        <div style="width: 50%; float:right">
+          Blue 1: <input id="blue1" type="text" name="FirstName" value="Mickey"><br>
+          Blue 2: <input id="blue2" type="text" name="LastName" value="Mouse"><br>
+          Blue 3: <input id="blue3" type="text" name="LastName" value="Mouse"><br>
+        </div>
+
+      <br><br>
+      <button id="submitTeams" type="button" class="btn btn-primary btn-lg btn-block">
+        <span class="rcen">Submit Teams</span>
+      </button>
+      <br><br>
+
+      </div>
+      <button id="resetTime" type="button" class="btn btn-primary btn-lg btn-block">
+        <span class="rcen">Reset Timer</span>
+      </button>
+      <div class="checkbox">
+        <label><input id="autoExists" type="checkbox" value="">No Auto &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <label><input id="fiveMinTime" type="checkbox" value="">5 Minute Timer</label>
+      </div> 
+    </article>
+    <article class="timeButtons">
+      <button id="startMatch" type="button" class="btn btn-primary btn-lg btn-block">
+        <span class="rcen">Start/Continue</span>
+      </button>
+      <button id="pause" type="button" class="btn btn-secondary btn-lg btn-block">  
+        <span class="rcor">Stop</span>
+      </button>
+      <button id="subMatch"> Sub 1 match </button>
+      <button id="addMatch"> Add 1 match </button>
+
+    </article>
+    <footer class="footer">Sokolov©</footer>
+  </div>
+
+</main>
+
+
+
+<!--<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>-->
+<script src="/assets/js/jquery-1.10.2.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/assets/js/editTeams.js"></script>
+
+
+<script type="text/javascript">
+ function requestFullScreen(element) {
+    // Supports most browsers and their versions.
+    var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
+
+    if (requestMethod) { // Native full screen.
+      requestMethod.call(element);
+    } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+      var wscript = new ActiveXObject("WScript.Shell");
+      if (wscript !== null) {
+        wscript.SendKeys("{F11}");
+      }
+    }
+  }
+
+var elem = document.body; // Make the body go full screen.
+requestFullScreen(elem);
+</script>
+
+
+<script>
+  window.navigator = window.navigator || {};
+  if (navigator.vibrate === undefined) {
+    document.getElementById('v-unsupported').classList.remove('hidden');
+    ['resetTime', 'startMatch', 'pause'].forEach(function(elementId) {
+      document.getElementById(elementId).setAttribute('disabled', 'disabled');
+    });
+  } else {
+    ['resetTime', 'startMatch', 'pause'].forEach(function(elementId) {
+      document.getElementById(elementId).addEventListener('click', function() {
+        navigator.vibrate(250);
+      });
+    });
+  }
+</script>   
+
+<% include ../partials/scripts %>
+</body>
+
+</html>
