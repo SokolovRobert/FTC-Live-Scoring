@@ -274,9 +274,16 @@ $(function() {
       localReset();
   });
 
-  socket.on('startTime', function (){
-      console.log("startTime");
-      stopwatch.start();
+  socket.on('startTime', function (data){
+      if(data.auto == 1){
+        a_or_t = 'a';
+      }else{
+        a_or_t = 't';
+      }
+      
+        //legacy
+      //console.log("startTime");
+      //stopwatch.start();
   });
 
   socket.on('stopTime', function (){

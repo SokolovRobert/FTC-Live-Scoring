@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body>
+  <header>
+  </header>
+  <!--<main onclick="requestFullScreen(document.body)">-->
+
+  <div class="wrapper">
+    <header class="header">FTC Live Scoring Beta - Timer Reset</header>
+    <span id="current" class="current">
+        Current: Auto
+    </span>
+
+    <article class="timer">
+      <button id="resetTime" type="button" class="btn btn-primary btn-lg btn-block">
+        <span class="rcen">Reset Timer</span>
+      </button>
+      <button id="autoStart" type="button" class="btn btn-primary btn-lg btn-block">
+        <span class="rcen">Auto</span>
+      </button>
+      <button id="teleStart" type="button" class="btn btn-primary btn-lg btn-block">
+        <span class="rcen">Teleop</span>
+      </button>
+    </article>
+    <footer class="footer">Sokolov©</footer>
+  </div>
+
+</main>
+
+
+
+<!--<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>-->
+<script src="/assets/js/jquery-1.10.2.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/assets/js/autoTele.js"></script>
+
+
+<% include ../partials/scripts %>
+</body>
+
+</html>

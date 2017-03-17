@@ -83,6 +83,10 @@ app.get("/displayBottomOnly", function(request, response){
   response.render("pages/displayBottomOnly", { pageTitle: "Welcome, please log in or create an account" });
 });
 
+app.get("/autoTele", function(request, response){
+  response.render("pages/autoTele", { pageTitle: "Welcome, please log in or create an account" });
+});
+
 app.get("/editTeams", function(request, response){
   response.render("pages/editTeams", { pageTitle: "Welcome, please log in or create an account" });
 });
